@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+  <script type="text/javascript" src="js/vue.js"></script>
+  <style>
+    .box{
+      height: 100px;
+      width: 100px;
+      background: red;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <input type="" name="" id="inp" v-model="message" v-bind:title="message">
+    <input type="" name="" v-bind:placeholder="message">
+    <div id="content" >
+      {{message}}
+    </div>
+    <button v-on:click="toggle">点击</button>
+    <button @click="toggle">点击</button>
+    <div class="box" v-if="seen"></div>
+  </div>
+  <div id="app-5">
+    <p>{{ message }}</p>
+    <button v-on:click="reverseMessage">逆转消息</button>
+ </div>
+</body>
+</html>
+<script >
+  var app= new Vue({
+    el:'#app',
+    data:{
+      message: 'hello vuejs',
+      seen: true
+    },
+    methods:{
+      toggle:function(){
+        this.seen=!this.seen;
+      }
+    }
+  })
+</script>
+<script >
+  var app5 = new Vue({
+    el: '#app-5',
+    data: {
+      message: 'Hello Vue.js!'
+    },
+    methods: {
+      reverseMessage: function () {
+        this.message = this.message.split('').reverse().join('')
+      }
+    }
+  })
+</script>
